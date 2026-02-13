@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+    cdep:
+        restart: always
+        env_file:
+            - ../env_cdep
+        container_name: cdep
+        ports:
+            - '8086:80'
+        volumes:
+            - '../nfs/cdep-dev/uploads:/var/www/html/cdep/wp-content/uploads'
+            - '../nfs/cdep-dev/plugins:/var/www/html/cdep/wp-content/plugins'
+            - '../nfs/cdep-dev/upgrade:/var/www/html/cdep/wp-content/upgrade'
+            - '../nfs/cdep-dev/locationmatch:/etc/apache2/locationmatch/location_match.modsecurity'
+        image: wordpress/cdep
+        build: 
+            dockerfile: ./Dockerfile
+            context: . 
