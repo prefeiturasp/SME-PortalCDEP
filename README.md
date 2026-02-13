@@ -1,1 +1,12 @@
-# SME-PortalCDEP
+docker build -t registry.sme.prefeitura.sp.gov.br/wordpress/base:7.4.33-apache-bullseye -f Dockerfile.php7 .
+
+docker build -t registry.sme.prefeitura.sp.gov.br/wordpress/homolog/cdep .
+
+docker push registry.sme.prefeitura.sp.gov.br/wordpress/base:7.4.33-apache-bullseye
+
+docker push registry.sme.prefeitura.sp.gov.br/wordpress/homolog/cdep
+
+docker login registry.sme.prefeitura.sp.gov.br
+
+- wordpress / (solicitar senha a equipe)
+- acesso somente leitura
